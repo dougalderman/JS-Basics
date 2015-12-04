@@ -11,11 +11,13 @@ var outer = function(){
 
   //Code Here
 
+  var inner = outer();
+
 //Once you do that, invoke inner.
 
   //Code Here
 
-
+inner();
 
 //Next problem
 
@@ -34,7 +36,8 @@ var callFriend = function(){
 
   //Code Here
 
-
+var call = callFriend();
+call('435-215-9248');
 
 //Next Problem
 
@@ -45,6 +48,13 @@ var callFriend = function(){
 */
 
   //Code Here
+function makeCounter() {
+  var count = 1;
+  return function() {
+    return count++;
+  }
+}
+
   var count = makeCounter();
   count(); // 1
   count(); // 2
@@ -58,11 +68,31 @@ var callFriend = function(){
 
 
 /*
-  Write a function named codeLove that returns the string 'I love code'. Write a second function named codeFriend that accepts the first function as it's first parameter. The second function should return a new third function. Store the third function in a variable, codeEcho which, when invoked, invokes the first, original function that was passed in, but will only ever do so once (returns null after first invocation).
+  Write a function named codeLove that returns the string 'I love code'.
+  Write a second function named codeFriend that accepts the first function as it's first parameter.
+  The second function should return a new third function. Store the third function in a variable,
+  codeEcho which, when invoked, invokes the first, original function that was passed in,
+  but will only ever do so once (returns null after first invocation).
 */
 
   //Code Here
+function codeLove() {
+  return 'I love code';
+}
 
+function codeFriend(func) {
+  var counter = 0;
+  var newFun = function() {
+    counter++;
+    if (counter === 1)
+      return func();
+    else
+      return null;
+  }
+  return newFun;
+}
+
+var codeEcho = codeFriend(codeLove);
 
 
 //Next Problem
@@ -70,10 +100,19 @@ var callFriend = function(){
 
 
 /*
-  Now, similar to the last problem, write a function called 'fnCounter' that accepts two parameters. The first parameter will be an anonymous function and the second parameter, 'N', will be a number. Now, in 'fnCounter', allow the anonymous funciton to be invoked 'N' number of times. After it's been invoked 'N' number of times, return 'STOP'.
+  Now, similar to the last problem, write a function called 'fnCounter' that accepts two parameters.
+  The first parameter will be an anonymous function and the second parameter, 'N', will be a number.
+  Now, in 'fnCounter', allow the anonymous funciton to be invoked 'N' number of times.
+  After it's been invoked 'N' number of times, return 'STOP'.
 */
 
-
+function fnCounter(func, N) {
+    var count = 0;
+    if (count < N)
+      func();
+    else
+      return 'STOP';
+}
 
 //Next Problem
 
@@ -88,7 +127,9 @@ var callFriend = function(){
     }
   };
 
-  Above you have a function named counter. Examine the function (without running the code) then below write what you expect to happen when the funciton is invoked. *Hint: setTimeout calls a function or evaluates an expression after a specified number of milliseconds.
+  Above you have a function named counter.
+  Examine the function (without running the code) then below write what you expect to happen when the funciton is invoked.
+  *Hint: setTimeout calls a function or evaluates an expression after a specified number of milliseconds.
 
     //Answer Here
 
@@ -123,5 +164,3 @@ var callFriend = function(){
 
   *Hint: Don't let this fool you. Break down what's really happening here.
 */
-
-

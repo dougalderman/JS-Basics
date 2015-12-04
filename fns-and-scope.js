@@ -7,6 +7,14 @@ var name = 'Tyler';
 
   //Code Here
 
+  function isTyler(name) {
+    if (name === "Tyler")
+      return true;
+    else {
+      return false;
+    }
+  }
+
 //Next problem
 
 
@@ -16,6 +24,10 @@ var name = 'Tyler';
 
   //Code Here
 
+function getName() {
+  var name = prompt("Please enter your name");
+  return name;
+}
 
 //Next Problem
 
@@ -25,7 +37,10 @@ var name = 'Tyler';
 //then alerts "Welcome, " plus whatever the users name is.
 
   //Code Here
-
+function welcome() {
+  var n = getName();
+  alert("Welcome, " + n);
+}
 
 //Next problem
 
@@ -35,7 +50,8 @@ var name = 'Tyler';
 //What is the difference between arguments and parameters?
 
   //Answer Here
-
+/* An argument is passed to the function when it is called. A parameter receives the arguments passed, and
+is included in the function definition. */
 
 //Next problem
 
@@ -45,7 +61,8 @@ var name = 'Tyler';
 
 
   //Answer Here
-
+/* falsy values are false, undefined, NaN, "", 0, null. To check if something is falsy, use an
+if statement. if statement will fail if argument is falsy. */
 
 
 //Next Problem
@@ -55,16 +72,20 @@ var name = 'Tyler';
 //Create a function called myName that returns your name
 
   //Code Here
-  
+function myName() {
+  return "Doug";
+}
 
 
 //Now save the function definition of myName into a new variable called newMyName
 
   //Code Here
 
+  var newMyName = myName;
+
 //Now alert the result of invoking newMyName
 
-
+alert(newMyName());
 
 //Next problem
 
@@ -74,8 +95,18 @@ var name = 'Tyler';
 
   //Code Here
 
+  function outerFn() {
+    return function() {
+      return "Doug";
+    }
+  }
+
 //Now save the result of invoking outerFn into a variable called innerFn.
 
   //Code Here
 
+  var innerFn = outerFn(); 
+
 //Now invoke innerFn.
+
+innerFn();
