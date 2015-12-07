@@ -183,6 +183,21 @@ Fix the counter function so that it works the way you expect it to work. (loggin
 
   *Hint: Don't let this fool you. Break down what's really happening here.
 */
+var makeNumReturn = function(num) {
+  var myNumber = num;
+  return function() {
+    return myNumber;
+  }
+}
+
+var funcArray = [];
+for (var i = 0; i < 6; i++) {
+  var currentFunc = makeNumReturn(i);
+    funcArray.push(currentFunc);
+}
+
+
+/*
 var funcArray = [];
 
 function loadArray() {
@@ -206,6 +221,7 @@ function loadArray() {
   }
 }
 
+*/
 
 loadArray();
 /* function dispIndex() {
