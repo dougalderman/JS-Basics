@@ -160,7 +160,7 @@ Fix the counter function so that it works the way you expect it to work. (loggin
     //Code Here
     function timer(delay) {
       console.log(delay);
-    }    
+    }
     var counter = function(){
       for (var i=1; i<=5; i++) {
         setTimeout(timer(i), i*1000 );
@@ -182,4 +182,35 @@ Fix the counter function so that it works the way you expect it to work. (loggin
   funcArray[5]() //5
 
   *Hint: Don't let this fool you. Break down what's really happening here.
+*/
+var funcArray = [];
+
+function loadArray() {
+  funcArray[0] = function() {
+    return(0)
+  }
+  funcArray[1] = function() {
+    return(1);
+  }
+  funcArray[2] = function() {
+    return(2);
+  }
+  funcArray[3] = function() {
+    return(3);
+  }
+  funcArray[4] = function() {
+    return(4);
+  }
+  funcArray[5] = function() {
+    return(5);
+  }
+}
+
+
+loadArray();
+/* function dispIndex() {
+  for (var i = 0; i < funcArray.length; i++) {
+    funcArray[i](i);
+  }
+}
 */
