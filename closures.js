@@ -108,11 +108,21 @@ var codeEcho = codeFriend(codeLove);
 
 function fnCounter(func, N) {
     var count = 0;
-    if (count < N)
-      func();
-    else
-      return 'STOP';
+    return function() {
+      if (count < N) {
+        count++;
+        return func();
+      }
+      else {
+        return 'STOP';
+      }
+    }
 }
+/* var fn = function () {
+			return 'Hello'
+		}
+var times = 2;
+var count = fnCounter(fn, times); */
 
 //Next Problem
 
@@ -127,26 +137,35 @@ function fnCounter(func, N) {
     }
   };
 
+
   Above you have a function named counter.
   Examine the function (without running the code) then below write what you expect to happen when the funciton is invoked.
-  *Hint: setTimeout calls a function or evaluates an expression after a specified number of milliseconds.
+  *Hint: setTimeout calls a function or evaluates an expression after a specified number of milliseconds. */
 
     //Answer Here
-
+/* It will do nothing because setTimeout() is being passed a function as first parameter instead of an expression.
 
   Now, run the function in your console and note what happpens.
 
   Was your answer right or wrong?
 
     //Answer Here
+/* Wrong. It console logged 6, then had a five second timeout.
 
 
-  Fix the counter function so that it works the way you expect it to work. (logging 1 then 2 then 3, etc) (Note: No unit test for this one because of the timeout)
+Fix the counter function so that it works the way you expect it to work. (logging 1 then 2 then 3, etc)
+(Note: No unit test for this one because of the timeout)
 */
 
     //Code Here
-
-
+    function timer(delay) {
+      console.log(delay);
+    }    
+    var counter = function(){
+      for (var i=1; i<=5; i++) {
+        setTimeout(timer(i), i*1000 );
+      }
+    }
 
 //Next Problem
 
