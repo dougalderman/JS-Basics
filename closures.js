@@ -158,9 +158,17 @@ Fix the counter function so that it works the way you expect it to work. (loggin
 */
 
     //Code Here
-    function timer(delay) {
+    /* function timer(delay) {
       console.log(delay);
+    } */
+
+    var timer = function(delay) {
+      var myDelay = delay;
+      return function() {
+        console.log(myDelay);
+      }
     }
+
     var counter = function(){
       for (var i=1; i<=5; i++) {
         setTimeout(timer(i), i*1000 );
