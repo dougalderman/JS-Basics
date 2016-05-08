@@ -200,7 +200,7 @@ var makeNumReturn = function(num) {
 
 var funcArray = [];
 for (var i = 0; i < 6; i++) {
-  var currentFunc = makeNumReturn(i);
+  	var currentFunc = makeNumReturn(i);
     funcArray.push(currentFunc);
 }
 
@@ -229,7 +229,6 @@ function loadArray() {
   }
 }
 
-*/
 
 loadArray();
 /* function dispIndex() {
